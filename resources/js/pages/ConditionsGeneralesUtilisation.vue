@@ -10,7 +10,7 @@
 <template>
   <Header />
   <Title :text="ConditionsGeneralesUtilisationTexts.title" />
-  <template v-for="paragraph in ConditionsGeneralesUtilisationTexts.paragraphs">
+  <template v-for="(paragraph, index) in ConditionsGeneralesUtilisationTexts.paragraphs" :key="index">
     <TitleText
       :title="paragraph.title"
       :texts="paragraph.texts"

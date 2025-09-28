@@ -11,7 +11,7 @@
     </div>
     <div class="faqfull-right-box">
       <div class="faqfull-grid">
-        <div class="faqfull-tab" v-for="(tab, index) in pageFaqStore.tabs" :key="tab.title" @click="pageFaqStore.tabs[index].isOpen = !tab.isOpen">
+        <div class="faqfull-tab" v-for="(tab, index) in pageFaqStore.tabs" :key="index" @click="pageFaqStore.tabs[index].isOpen = !tab.isOpen">
           <div class="faqfull-tab-top">
             <h3 class="faqfull-tab-title">{{ tab.title }}</h3>
             <VsxIcon style="flex-shrink: 0;" v-if="!tab.isOpen" iconName="ArrowDown2" color="#296242" size="35" type="linear" />
@@ -19,7 +19,7 @@
           </div>
           <div class="faqfull-tab-content" :class="{ 'faqfull-tab-content-open': tab.isOpen }">
             <div class="faqfull-tab-content-box">
-              <template v-for="text in tab.texts">
+              <template v-for="(text, index) in tab.texts" :key="index">
                 <br v-if="text.length === 0"/>
                 <p v-else class="faqfull-tab-content-text" v-html="text"></p>
               </template>

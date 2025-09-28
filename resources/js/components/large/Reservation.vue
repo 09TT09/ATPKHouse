@@ -93,7 +93,7 @@
       notAvailableAttr.dates = [];
       form.accommodation_id = props.reservationsData.accommodation_id;
 
-      for (const [key, reservation] of Object.entries(newReservations)) {
+      for (const reservation of Object.entries(newReservations)) {
         const [ay, am, ad] = reservation.arrival_date.split("-");
         const [dy, dm, dd] = reservation.departure_date.split("-");
 

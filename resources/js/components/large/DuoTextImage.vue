@@ -7,7 +7,7 @@
     <div class="duotextimage-left-box">
       <div class="duotextimage-texts-box">
         <h2 class="duotextimage-title">{{ props.title }}</h2>
-        <p v-for="text in props.texts" class="duotextimage-text">{{ text }}</p>
+        <p v-for="(text, index) in props.texts" class="duotextimage-text" :key="index">{{ text }}</p>
       </div>
     </div>
     <div class="duotextimage-right-box">

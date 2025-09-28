@@ -17,7 +17,8 @@
       <div class="housingcard-card-text-box-left">
         <div class="housingcard-card-rating">
           <VsxIcon
-            v-for="star in 5"
+            v-for="(star, index) in 5"
+            :key="index"
             iconName="Star1"
             size="16"
             type="linear"

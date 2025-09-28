@@ -1,6 +1,6 @@
 <script setup>
   const props = defineProps(['bannerData']);
-  const emit = defineEmits(['go-to-reservation']);
+  const emit = defineEmits(["go-to-reservation"]);
 </script>
 
 <template>
@@ -56,7 +56,7 @@
               </div>
             </div>
 
-            <button class="bannerexperience-booking-button" @click="$emit('go-to-reservation')">Réserver</button>
+            <button class="bannerexperience-booking-button" @click="emit('go-to-reservation')">Réserver</button>
           </div>
 
         </div>

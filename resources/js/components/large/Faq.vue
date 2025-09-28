@@ -11,7 +11,7 @@
     </div>
     <div class="faq-right-box">
       <div class="faq-grid">
-        <div class="faq-tab" v-for="(tab, index) in logementUniqueStore.tabs" :key="tab.title" @click="logementUniqueStore.tabs[index].isOpen = !tab.isOpen">
+        <div class="faq-tab" v-for="(tab, index) in logementUniqueStore.tabs" :key="index" @click="logementUniqueStore.tabs[index].isOpen = !tab.isOpen">
           <div class="faq-tab-top">
             <h3 class="faq-tab-title">{{ tab.title }}</h3>
             <VsxIcon style="flex-shrink: 0;" v-if="!tab.isOpen" iconName="ArrowDown2" color="#296242" size="35" type="linear" />
@@ -19,7 +19,7 @@
           </div>
           <div class="faq-tab-content" :class="{ 'faq-tab-content-open': tab.isOpen }">
             <div class="faq-tab-content-box">
-              <template v-for="text in tab.texts">
+              <template v-for="(text, index) in tab.texts" :key="index">
                 <br v-if="text.length === 0"/>
                 <p v-else class="faq-tab-content-text">{{ text }}</p>
               </template>

@@ -9,7 +9,7 @@
 </script>
 
 <template>
-  <div class="experiencecard-card" :class="cardConfig === 0 ? 'experiencecard-card-config-0' : 'experiencecard-card-config-1'">
+  <div class="experiencecard-card" :class="props.cardConfig === 0 ? 'experiencecard-card-config-0' : 'experiencecard-card-config-1'">
     <div class="experiencecard-card-image-box">
       <img v-if="cardData" :src="props.cardData.image_path" alt="image de l'expérience" class="experiencecard-card-image" />
     </div>

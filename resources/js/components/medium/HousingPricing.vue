@@ -1,5 +1,5 @@
 <script setup>
-  import { reactive } from 'vue';
+  import { reactive, toRefs } from 'vue';
   import InputNumber from '@/components/small/InputNumber.vue';
 
   const props = defineProps(['formData']);
@@ -41,16 +41,23 @@
       "placeholder": ""
     },
   });
+
+  const {
+    price_night,
+    min_number_nights,
+    security_deposit,
+    cleaning_charges,
+  } = toRefs(props.formData);
 </script>
 
 <template>
   <div class="housingpricing">
     <h2 class="housingpricing-title">Tarification & Disponibilités</h2>
     <div class="housingpricing-grid">
-      <InputNumber v-model="props.formData.price_night" :inputData="inputData['price_night']" :error="props.formData.errors.price_night" />
-      <InputNumber v-model="props.formData.min_number_nights" :inputData="inputData['min_number_nights']" :error="props.formData.errors.min_number_nights" />
-      <InputNumber v-model="props.formData.security_deposit" :inputData="inputData['security_deposit']" :error="props.formData.errors.security_deposit" />
-      <InputNumber v-model="props.formData.cleaning_charges" :inputData="inputData['cleaning_charges']" :error="props.formData.errors.cleaning_charges" />
+      <InputNumber v-model="price_night" :inputData="inputData['price_night']" :error="props.formData.errors.price_night" />
+      <InputNumber v-model="min_number_nights" :inputData="inputData['min_number_nights']" :error="props.formData.errors.min_number_nights" />
+      <InputNumber v-model="security_deposit" :inputData="inputData['security_deposit']" :error="props.formData.errors.security_deposit" />
+      <InputNumber v-model="cleaning_charges" :inputData="inputData['cleaning_charges']" :error="props.formData.errors.cleaning_charges" />
     </div>
   </div>
 </template>

@@ -1,5 +1,5 @@
 <script setup>
-  import { reactive } from 'vue';
+  import { reactive, toRefs } from 'vue';
   import InputNumber from '@/components/small/InputNumber.vue';
   import InputTime from '@/components/small/InputTime.vue';
   import Textarea from '@/components/small/Textarea.vue';
@@ -60,6 +60,16 @@
       "placeholder": "Ajoutez des règles supplémentaires..."
     },
   });
+
+  const {
+    arrival_time,
+    departure_time,
+    minimum_age,
+    smokers_allowed,
+    pets_allowed,
+    events_allowed,
+    additional_rules
+  } = toRefs(props.formData);
 </script>
 
 <template>
@@ -67,17 +77,17 @@
     <h2 class="housingrules-title">Règles du logement</h2>
 
     <div class="housingrules-grid">
-      <InputTime v-model="props.formData.arrival_time" :inputData="inputData['arrival_time']" :error="props.formData.errors.arrival_time" /> 
-      <InputTime v-model="props.formData.departure_time" :inputData="inputData['departure_time']" :error="props.formData.errors.departure_time" /> 
-      <InputNumber v-model="props.formData.minimum_age" :inputData="inputData['minimum_age']" :error="props.formData.errors.minimum_age" />
+      <InputTime v-model="arrival_time" :inputData="inputData['arrival_time']" :error="props.formData.errors.arrival_time" /> 
+      <InputTime v-model="departure_time" :inputData="inputData['departure_time']" :error="props.formData.errors.departure_time" /> 
+      <InputNumber v-model="minimum_age" :inputData="inputData['minimum_age']" :error="props.formData.errors.minimum_age" />
     </div>
     <div class="housingrules-checkboxes-container">
-      <InputCheckbox v-model="props.formData.smokers_allowed" :inputData="inputData['smokers_allowed']" :error="props.formData.errors.smokers_allowed" />
-      <InputCheckbox v-model="props.formData.pets_allowed" :inputData="inputData['pets_allowed']" :error="props.formData.errors.pets_allowed" />
-      <InputCheckbox v-model="props.formData.events_allowed" :inputData="inputData['events_allowed']" :error="props.formData.errors.events_allowed" />
+      <InputCheckbox v-model="smokers_allowed" :inputData="inputData['smokers_allowed']" :error="props.formData.errors.smokers_allowed" />
+      <InputCheckbox v-model="pets_allowed" :inputData="inputData['pets_allowed']" :error="props.formData.errors.pets_allowed" />
+      <InputCheckbox v-model="events_allowed" :inputData="inputData['events_allowed']" :error="props.formData.errors.events_allowed" />
     </div>
     <div class="housingrules-sub-content">
-      <Textarea v-model="props.formData.additional_rules" :inputData="inputData['additional_rules']" :error="props.formData.errors.additional_rules" />
+      <Textarea v-model="additional_rules" :inputData="inputData['additional_rules']" :error="props.formData.errors.additional_rules" />
     </div>
   </div>
 </template>

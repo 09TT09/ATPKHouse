@@ -31,7 +31,7 @@
         <div>
           <div v-if="reservationStatus === 'Confirmée'" class="dashboardreservationcard-confirmed"><p>Confirmée</p></div>
           <div v-else-if="reservationStatus === 'En cours'" class="dashboardreservationcard-ongoing"><p>En Cours</p></div>
-          <div v-else="reservationStatus === 'Terminée'" class="dashboardreservationcard-finished"><p>Terminée</p></div>
+          <div v-else class="dashboardreservationcard-finished"><p>Terminée</p></div>
         </div>
         <div>
           <a class="dashboardreservationcard-cancel">Annuler</a>

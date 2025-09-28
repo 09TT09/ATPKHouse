@@ -2,11 +2,11 @@
   import HousingCardAlt from '@/components/medium/HousingCardAlt.vue';
 
   const props = defineProps(['accommodationsData', 'pageData']);
-  const emit = defineEmits(['emitGoToPage']);
+  const emit = defineEmits(["emitGoToPage"]);
 
   function visiblePages() {
     const { current_page, last_page } = props.pageData;
-    let pagesToDisplay = [1];
+    const pagesToDisplay = [1];
 
     if (current_page - 1 > 1) { pagesToDisplay.push(current_page - 1); }
     if (current_page > 1 ) { pagesToDisplay.push(current_page); }
@@ -31,7 +31,7 @@
       <button
         v-for="page in visiblePages()"
         :key="page"
-        @click="$emit('emitGoToPage', page)"
+        @click="emit('emitGoToPage', page)"
         :class="{ active: page === props.pageData.current_page }"
         class="cardsgallery-paging-button">
           {{ page }}

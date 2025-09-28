@@ -200,7 +200,7 @@
       </div>
 
       <div class="dashboardexperiences-bottom">
-        <button class="dashboardexperiences-button-cancel" type="button" :disabled="form.processing"@click="emit('emitResetSelectedExperience');">Annuler</button>
+        <button class="dashboardexperiences-button-cancel" type="button" :disabled="form.processing" @click="emit('emitResetSelectedExperience');">Annuler</button>
         <button class="dashboardexperiences-button-save" type="submit" :disabled="form.processing">
           <Loader v-if="form.processing" />
           <span v-else>Enregistrer</span>

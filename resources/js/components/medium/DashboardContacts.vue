@@ -68,28 +68,30 @@
 
       <div v-if="contacts.length !== 0" class="dashboardcontacts-table-box">
         <table>
-          <tr>
-            <th class="dashboardcontacts-table-id"><b>Id</b></th>
-            <th><b>Email</b></th>
-            <th class="dashboardcontacts-table-status"><b>Statut</b></th>
-            <th class="dashboardcontacts-table-action-th"><b>Action</b></th>
-          </tr>
-          <tr
-            v-for="(contact, index) in contacts"
-            :key="index"
-          >
-            <td class="dashboardcontacts-table-id">{{ contact.id }}</td>
-            <td>{{ contact.email }}</td>
-            <td
-              class="dashboardcontacts-table-status"
-              :class="contact.is_read ? 'dashboardcontacts-status-true' : 'dashboardcontacts-status-false'"
+          <tbody>
+            <tr>
+              <th class="dashboardcontacts-table-id"><b>Id</b></th>
+              <th><b>Email</b></th>
+              <th class="dashboardcontacts-table-status"><b>Statut</b></th>
+              <th class="dashboardcontacts-table-action-th"><b>Action</b></th>
+            </tr>
+            <tr
+              v-for="(contact, index) in contacts"
+              :key="index"
             >
-              {{ readableStatus(contact.is_read) }}
-            </td>
-            <td class="dashboardcontacts-table-action">
-              <button class="dashboardcontacts-button" @click="showItemData(contact)">Voir</button>
-            </td>
-          </tr>
+              <td class="dashboardcontacts-table-id">{{ contact.id }}</td>
+              <td>{{ contact.email }}</td>
+              <td
+                class="dashboardcontacts-table-status"
+                :class="contact.is_read ? 'dashboardcontacts-status-true' : 'dashboardcontacts-status-false'"
+              >
+                {{ readableStatus(contact.is_read) }}
+              </td>
+              <td class="dashboardcontacts-table-action">
+                <button class="dashboardcontacts-button" @click="showItemData(contact)">Voir</button>
+              </td>
+            </tr>
+          </tbody>
         </table>
       </div>
 

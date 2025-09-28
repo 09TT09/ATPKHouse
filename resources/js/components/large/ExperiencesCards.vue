@@ -23,12 +23,12 @@
 
       <div class="experiencescards-bottom">
         <div class="experiencescards-bottom-left">
-          <ExperienceCard :cardData="experiencesData.wellness" :cardConfig=0 :cardNumber="0" v-if="experiencesData && experiencesData.wellness" />
+          <ExperienceCard :cardData="props.experiencesData.wellness" :cardConfig=0 :cardNumber="0" v-if="props.experiencesData && props.experiencesData.wellness" />
         </div>
 
         <div class="experiencescards-bottom-right">
-          <ExperienceCard :cardData="experiencesData.adventure" :cardConfig=1 :cardNumber="1" v-if="experiencesData && experiencesData.adventure" />
-          <ExperienceCard :cardData="experiencesData.gastronomy" :cardConfig=1 :cardNumber="2" v-if="experiencesData && experiencesData.gastronomy" />
+          <ExperienceCard :cardData="props.experiencesData.adventure" :cardConfig=1 :cardNumber="1" v-if="props.experiencesData && props.experiencesData.adventure" />
+          <ExperienceCard :cardData="props.experiencesData.gastronomy" :cardConfig=1 :cardNumber="2" v-if="props.experiencesData && props.experiencesData.gastronomy" />
         </div>
       </div>
 

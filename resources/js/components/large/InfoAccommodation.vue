@@ -1,11 +1,11 @@
 <script setup>
   import { ref, watch } from 'vue';
   const props = defineProps(['infoData', 'imagesData']);
-  const imagesData = ref([]);
+  const localImages = ref([]);
 
   watch(
     () => props.imagesData,
-    (newValue) => { imagesData.value = newValue;},
+    (newValue) => { localImages.value = newValue;},
     { immediate: true }
   );
 </script>

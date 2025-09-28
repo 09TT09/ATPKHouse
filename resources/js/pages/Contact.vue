@@ -44,6 +44,7 @@
   <BannerAlt :image="imgBanner" title="À propos" />
   <DuoTextImage
     v-for="(item, index) in DuoTextImageData"
+    :key="index"
     :title="item.title"
     :texts="item.texts"
     :image="item.image" 

@@ -9,8 +9,8 @@
   <div class="datatable">
     <div class="datatable-top">
       <h2>{{ config.title }}</h2>
-      <button v-if="!props.isShown" class="datatable-button-previous" @click="$emit('go-back')">Retour</button>
-      <button v-if="selectedItem" class="datatable-button-previous" @click="$emit('close-item')">Retour</button>
+      <button v-if="!props.isShown" class="datatable-button-previous" @click="emit('go-back')">Retour</button>
+      <button v-if="selectedItem" class="datatable-button-previous" @click="emit('close-item')">Retour</button>
     </div>
 
     <div class="datatable-table-box" v-if="!props.isShown">
@@ -36,12 +36,12 @@
               <td>
                 <button
                   :style="{ borderRight: item.role === 'admin' ? '0' : '' }"
-                  @click="$emit('show-item', item)"
+                  @click="emit('show-item', item)"
                   class="datatable-button datatable-button-display">Voir</button>
                 <button
                   v-if="item.role !== 'admin'"
                   class="datatable-button datatable-button-delete"
-                  @click="$emit('delete-item', item, index)">Supprimer</button>
+                  @click="emit('delete-item', item, index)">Supprimer</button>
               </td>
             </template>
 
@@ -50,11 +50,11 @@
               <td>{{ item.name }}</td>
               <td>
                 <button
-                  @click="$emit('show-item', item)"
+                  @click="emit('show-item', item)"
                   class="datatable-button datatable-button-display">Voir</button>
                 <button
                   class="datatable-button datatable-button-delete"
-                  @click="$emit('delete-item', item, index)">Supprimer</button>
+                  @click="emit('delete-item', item, index)">Supprimer</button>
               </td>
             </template>
 
@@ -63,11 +63,11 @@
               <td>{{ item.name }}</td>
               <td>
                 <button
-                  @click="$emit('show-item', item)"
+                  @click="emit('show-item', item)"
                   class="datatable-button datatable-button-display">Voir</button>
                 <button
                   class="datatable-button datatable-button-delete"
-                  @click="$emit('delete-item', item, index)">Supprimer</button>
+                  @click="emit('delete-item', item, index)">Supprimer</button>
               </td>
             </template>
 
@@ -76,11 +76,11 @@
               <td>{{ item.name }}</td>
               <td>
                 <button
-                  @click="$emit('show-item', item)"
+                  @click="emit('show-item', item)"
                   class="datatable-button datatable-button-display">Voir</button>
                 <button
                   class="datatable-button datatable-button-delete"
-                  @click="$emit('delete-item', item, index)">Supprimer</button>
+                  @click="emit('delete-item', item, index)">Supprimer</button>
               </td>
             </template>
 

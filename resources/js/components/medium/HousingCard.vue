@@ -21,7 +21,8 @@
       <div class="housingcard-card-text-box-left">
         <div class="housingcard-card-rating">
           <VsxIcon
-            v-for="star in 5"
+            v-for="(star, index) in 5"
+            :key="index"
             iconName="Star1"
             :color="props.accommodationInfo.rating >= star ? '#DD6318' : '#212121'"
             size="16"

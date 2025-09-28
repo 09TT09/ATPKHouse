@@ -31,17 +31,19 @@
 
     <div v-if="newsletters.length !== 0" class="dashboardnewsletters-table-box">
       <table>
-        <tr>
-          <th class="dashboardnewsletters-table-id"><b>Id</b></th>
-          <th><b>Email</b></th>
-        </tr>
-        <tr
-          v-for="(newsletter, index) in newsletters"
-          :key="index"
-        >
-          <td class="dashboardnewsletters-table-id">{{ newsletter.id }}</td>
-          <td>{{ newsletter.email }}</td>
-        </tr>
+        <tbody>
+          <tr>
+            <th class="dashboardnewsletters-table-id"><b>Id</b></th>
+            <th><b>Email</b></th>
+          </tr>
+          <tr
+            v-for="(newsletter, index) in newsletters"
+            :key="index"
+          >
+            <td class="dashboardnewsletters-table-id">{{ newsletter.id }}</td>
+            <td>{{ newsletter.email }}</td>
+          </tr>
+        </tbody>
       </table>
     </div>
 

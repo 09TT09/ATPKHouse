@@ -1,5 +1,5 @@
 <script setup>
-  import { reactive, onMounted } from 'vue';
+  import { reactive, onMounted, toRefs } from 'vue';
   import InputText from '@/components/small/InputText.vue';
   import InputNumber from '@/components/small/InputNumber.vue';
   import Textarea from '@/components/small/Textarea.vue';
@@ -116,13 +116,27 @@
     },
   });
 
+  const {
+    name,
+    type,
+    area,
+    capacity,
+    bedrooms,
+    department,
+    municipality,
+    address,
+    description,
+    latitude,
+    longitude,
+  } = toRefs(props.formData);
+
   const updateMarkerFromInputs = () => {
     updateMarkerPosition(form.latitude, form.longitude);
   };
 
   const updatePositionFormData = (newCoords) => {
-    props.formData.latitude = newCoords[0];
-    props.formData.longitude = newCoords[1];
+    latitude.value = newCoords[0];
+    longitude.value = newCoords[1];
   };
 
   onMounted(() => {
@@ -136,22 +150,22 @@
       <h2 class="housinggeneralsinfos-title">Informations générales du logement</h2>
 
       <div class="housinggeneralsinfos-grid">
-        <InputText v-model="props.formData.name" :inputData="inputData['name']" :error="props.formData.errors.name" />
-        <Select v-model="props.formData.type" :inputData="inputData['type']" :error="props.formData.errors.type" />
-        <InputNumber v-model="props.formData.area" :inputData="inputData['area']" :error="props.formData.errors.area" />
-        <InputNumber v-model="props.formData.capacity" :inputData="inputData['capacity']" :error="props.formData.errors.capacity" />
-        <InputNumber v-model="props.formData.bedrooms" :inputData="inputData['bedrooms']" :error="props.formData.errors.bedrooms" />
-        <InputText v-model="props.formData.department" :inputData="inputData['department']" :error="props.formData.errors.department" />
-        <InputText v-model="props.formData.municipality" :inputData="inputData['municipality']" :error="props.formData.errors.municipality" />
-        <InputText v-model="props.formData.address" :inputData="inputData['address']" :error="props.formData.errors.address" />
+        <InputText v-model="name" :inputData="inputData['name']" :error="props.formData.errors.name" />
+        <Select v-model="type" :inputData="inputData['type']" :error="props.formData.errors.type" />
+        <InputNumber v-model="area" :inputData="inputData['area']" :error="props.formData.errors.area" />
+        <InputNumber v-model="capacity" :inputData="inputData['capacity']" :error="props.formData.errors.capacity" />
+        <InputNumber v-model="bedrooms" :inputData="inputData['bedrooms']" :error="props.formData.errors.bedrooms" />
+        <InputText v-model="department" :inputData="inputData['department']" :error="props.formData.errors.department" />
+        <InputText v-model="municipality" :inputData="inputData['municipality']" :error="props.formData.errors.municipality" />
+        <InputText v-model="address" :inputData="inputData['address']" :error="props.formData.errors.address" />
       </div>
-      <Textarea v-model="props.formData.description" :inputData="inputData['description']" :error="props.formData.errors.description" />
+      <Textarea v-model="description" :inputData="inputData['description']" :error="props.formData.errors.description" />
 
       <div class="housinggeneralsinfos-map-box">
         <p class="housinggeneralsinfos-label">Coordonnées du logement</p>
         <div class="housinggeneralsinfos-content-map">
-          <InputNumber @input="updateMarkerFromInputs" ref="inputLatitude" v-model="props.formData.latitude" :inputData="inputData['latitude']" :error="props.formData.errors.latitude" />
-          <InputNumber @input="updateMarkerFromInputs" ref="inputLongitude" v-model="props.formData.longitude" :inputData="inputData['longitude']" :error="props.formData.errors.longitude" />
+          <InputNumber @input="updateMarkerFromInputs" ref="inputLatitude" v-model="latitude" :inputData="inputData['latitude']" :error="props.formData.errors.latitude" />
+          <InputNumber @input="updateMarkerFromInputs" ref="inputLongitude" v-model="longitude" :inputData="inputData['longitude']" :error="props.formData.errors.longitude" />
         </div>
         <div id="map" class="housinggeneralsinfos-map"></div>
       </div>

@@ -7,7 +7,12 @@ function toggleSidebar() {
 }
 
 watchEffect(() => {
-  window.innerWidth > 1000 ? sidebarCollapsed.value = false : sidebarCollapsed.value = true
+  if (window.innerWidth > 1000) {
+    sidebarCollapsed.value = false;
+  } else {
+    sidebarCollapsed.value = true;
+  }
+
 })
 
 export default function useSidebar() {
